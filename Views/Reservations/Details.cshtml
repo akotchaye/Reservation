@@ -1,0 +1,82 @@
+﻿@model Projet.Akotchaye.App_Data.Reservation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reservation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MontantRes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MontantRes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EtatRes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EtatRes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatedebutRes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatedebutRes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatefinRes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatefinRes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsvalidRes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsvalidRes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.IdUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.IdUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Salle.NomSalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salle.NomSalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Utilisateur.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utilisateur.Username)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdRes }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,84 @@
+﻿@model Projet.Akotchaye.App_Data.Reservation
+@{
+    ViewBag.Title = "ValidRes";
+}
+
+
+
+
+<h2>Valider la réservation </h2>
+
+<div>
+
+    <hr />
+    <form method="post">
+        <dl class="dl-horizontal">
+
+
+            <dt>
+                <label for="MontantRes">Montant réservation</label>
+
+                <input type="hidden" class="" name="IdRes" value="@Model.IdRes" required>
+                <input type="hidden" class="" name="IdSalle" value="@Model.IdSalle" required>
+                <input type="hidden" class="" name="IdUser" value="@Model.IdUser" required>
+                <input type="hidden" class="" name="Cli_IdUser" value="@Model.Cli_IdUser" required>
+                <input type="hidden" class="" name="IdClient" value="@Model.IdClient" required>
+
+
+            </dt>
+
+            <dd>
+                <label for="MontantRes"> @String.Format("{0:N0}", Model.MontantRes) F CFA</label>
+                <input type="hidden" class="" name="MontantRes" value="@Model.MontantRes" required>
+
+            </dd>
+
+            <dt>
+                <label for="EtatRes">Etat réservation</label>
+
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EtatRes)
+            </dd>
+
+            <dt>
+                <label for="DatedebutRes">Date début</label>
+                <input type="hidden" class="" name="DatedebutRes" value="@Model.DatedebutRes" required>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DatedebutRes)
+            </dd>
+
+            <dt>
+                <label for="DatefinRes">Date fin</label>
+                <input type="hidden" class="" name="DatefinRes" value="@Model.DatefinRes" required>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DatefinRes)
+            </dd>
+        </dl>
+
+
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+
+            <input type="submit" value="Valider" class="btn btn-primary" />
+
+        </div>
+        <div class="form-group">
+
+            @Html.ActionLink("Retour", "DashGes", "Dashboard")
+
+        </div>
+
+    </form>
+
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

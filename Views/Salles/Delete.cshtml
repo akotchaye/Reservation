@@ -1,0 +1,79 @@
+﻿@model Projet.Akotchaye.App_Data.Salle
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Supprimer la salle @Html.DisplayFor(model => model.NomSalle) </h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label for="NomSalle">Nom de la salle</label>
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomSalle)
+        </dd>
+
+        <dt>
+            <label for="CapaciteSalle">Capacité de la salle</label>
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CapaciteSalle)
+        </dd>
+
+        <dt>
+            <label for="PrixSalle">Prix de la salle</label>
+
+        </dt>
+
+        <dd>
+
+            <label for="PrixSalle"> @String.Format("{0:N0}", Model.PrixSalle) F CFA</label>
+
+        </dd>
+
+        <dt>
+            <label for="EtatSalle">Etat de la salle</label>
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EtatSalle)
+        </dd>
+
+        <dt>
+            <label for="AdrSalle">Adresse de la salle</label>
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdrSalle)
+        </dd>
+
+
+        <dt>
+            <label for="IdGes">Id gestionnaire</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gestionnaire.IdUser)
+        </dd>
+
+    </dl>
+
+    <form method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+            @Html.ActionLink("Annuler", "DashGes", "Dashboard")
+        </div>
+    </form>
+</div>

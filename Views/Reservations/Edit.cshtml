@@ -1,0 +1,74 @@
+﻿@model Projet.Akotchaye.Models.ViewModelReservation
+
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<div class="form-horizontal">
+    <h4>liste des horaires Occupés</h4>
+    <table class="table">
+        <tr>
+            <th>
+                <label for="">Date début</label>
+            </th>
+            <th>
+                <label for="">Date Fin</label>
+            </th>
+
+            <th></th>
+        </tr>
+        @if (Model.Reservations != null)
+        {
+
+            foreach (var item in Model.Reservations)
+            {
+                <tr>
+                    <td>
+                        <label for=""> @item.DatedebutRes</label>
+                    </td>
+                    <td>
+                        <label for=""> @item.DatefinRes</label>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+    <form method="post">
+
+        @Html.AntiForgeryToken()
+
+        <hr />
+        <input type="hidden" class="form-control" name="IdSalle" value="@ViewBag.IdSalle" aria-describedby="" placeholder="" required>
+        <input type="hidden" class="form-control" name="IdRes" value="@ViewBag.IdRes" aria-describedby="" placeholder="" required>
+        <div class="form-group">
+            <label for="DatedebutRes">Date de debut </label>
+            <div class="col-md-4">
+                <input type="datetime-local" class="form-control" name="DatedebutRes" value="@ViewBag.DatedebutRes" aria-describedby="" placeholder="" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="DatefinRes">Date de fin </label>
+            <div class="col-md-4">
+                <input type="datetime-local" class="form-control" name="DatefinRes" value="@ViewBag.DatefinRes" aria-describedby="" placeholder="" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class=" col-md-10">
+                <input type="submit" value="Enregistrer" class="btn btn-success" />
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<div>
+    @Html.ActionLink("Annuler", "DashClient", "Dashboard")
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

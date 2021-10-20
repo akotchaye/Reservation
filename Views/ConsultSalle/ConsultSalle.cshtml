@@ -1,0 +1,34 @@
+﻿@model Projet.Akotchaye.App_Data.Salle
+@{
+    ViewBag.Title = "ConsultSalle";
+
+}
+
+<div class="container">
+    <br />
+   <p></p>
+    <p class="text-center">@Model.DescripSalle</p>
+    <br />
+    @if (Model.ImgSalle2 != null)
+    {
+        var base64a = Convert.ToBase64String(Model.ImgSalle1);
+        var imgsrca = string.Format("data:image/jpg;base64,{0}", base64a);
+
+        <section class="row">
+            <img class="img-responsive" src="@imgsrca" alt="image1" width="1500" height="600">
+        </section>
+    }
+    <br />
+
+    @if (Model.ImgSalle2 != null)
+    {
+        var base64b = Convert.ToBase64String(Model.ImgSalle2);
+        var imgsrcb = string.Format("data:image/jpg;base64,{0}", base64b);
+        <section class="row">
+            <img class="img-responsive" src="@imgsrcb" alt="image2" width="1500" height="600">
+        </section>
+
+    }
+
+</div>
+

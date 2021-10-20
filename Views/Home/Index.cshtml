@@ -1,0 +1,48 @@
+﻿@model Projet.Akotchaye.Models.ViewModelSalle
+@{
+    ViewBag.Title = "Home Page";
+}
+<br />
+<div class="pull-right">@Html.ActionLink("Connexion", "Authentification", "Auth")</div>
+
+
+<br />
+<br />
+
+
+@if (Model.Salles != null)
+{
+    <div class="container">
+        <section class="row">
+
+            @foreach (var item in Model.Salles)
+            {
+                if (item.IsActiveSalle==true) 
+                {
+                    var base64 = Convert.ToBase64String(item.ImgSalle1);
+                    var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+            <div class=" col-md-3">
+                <div class="=card-columns">
+                    <div class="card">
+
+                        <img class="card-img-top" src="@imgsrc" width="270" height="270" >
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title"> @item.NomSalle </h6>
+                        <h6 class="card-title">Adresse: @item.AdrSalle </h6>
+                        <h6 class="card-title">Places: @item.CapaciteSalle </h6>
+                        <h6 class="card-title">Prix horaire: @String.Format("{0:N0}", item.PrixSalle) FCFA</h6>
+                        @Html.ActionLink("Reserver", "Create", "Reservations", new { id = item.IdSalle }, new { @class = "btn btn-primary" })
+                        <div class="pull-right">@Html.ActionLink("Voir", "ConsultSalle", "ConsultSalle", new { id = item.IdSalle }, null)</div>
+                        <br />
+                        <br />
+
+                    </div>
+                </div>
+            </div>
+                }
+            }
+
+        </section>
+    </div>
+}

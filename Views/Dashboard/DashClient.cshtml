@@ -1,0 +1,82 @@
+﻿@model Projet.Akotchaye.Models.ViewModelReservation
+@{
+    ViewBag.Title = "DashClient";
+}
+
+
+<br />
+@if (Session["UserName"] != null)
+{<h3> Welcome @Session["Nom"].ToString()  @Session["Prenoms"].ToString()  </h3>}
+<div class="pull-right">@Html.ActionLink("Déconnexion","Deconnexion", "Deconnexion")</div>
+<br />
+<h4>Réservations</h4>
+@Html.ActionLink("Ajouter une réservation", "Index", "Home",null, new { @class = "btn btn-primary" })
+<br />
+<br />
+<table class="table">
+    <tr>
+        <th>
+            <label for="">Salle</label>
+        </th>
+        <th>
+            <label for="">Capacité</label>
+        </th>
+        <th>
+            <label for="">Lieu</label>
+        </th>
+        <th>
+            <label for="">Montant</label>
+        </th>
+        <th>
+            <label for="">Debut</label>
+        </th>
+        <th>
+            <label for="">Fin</label>
+        </th>
+        <th>
+            <label for="">Statut</label>
+        </th>
+       
+        <th></th>
+    </tr>
+    @if (Model.Reservations != null)
+    {
+        foreach (var item in Model.Reservations)
+        {
+            <tr>
+                <td>
+                    <label for=""> @item.Salle.NomSalle </label>
+                </td>
+                <td>
+                    <label for=""> @item.Salle.CapaciteSalle</label>
+                </td>
+                <td>
+                    <label for=""> @item.Salle.AdrSalle</label>
+                </td>
+                <td>
+                    <label for="">@String.Format("{0:N0}", item.MontantRes) FCFA  </label>
+                </td>
+                <td>
+                    <label for=""> @item.DatedebutRes </label>
+                </td>
+                <td>
+                    <label for=""> @item.DatefinRes </label>
+                </td>
+                <td>
+                    <label for=""> @item.EtatRes </label>
+                </td>
+               
+
+                <td>
+                    
+                  @Html.ActionLink("Annuler", "Annuler", "Annuler", new { id = item.IdRes }, new { @class = "btn btn-danger" })|
+                          
+                  @Html.ActionLink("Modifier", "Edit", "Reservations", new { id = item.IdSalle }, new { @class = "btn btn-warning" })
+                </td>
+            </tr>
+        }
+    }
+
+
+</table>
+

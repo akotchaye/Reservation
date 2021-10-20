@@ -1,0 +1,66 @@
+﻿@model Projet.Akotchaye.Models.ViewModelReservation
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Dates de réservations</h2>
+
+<br />
+
+<h4>liste des horaires Occupés</h4>
+<table class="table">
+    <tr>
+        <th>
+            <label for="">Date début</label>
+        </th>
+        <th>
+            <label for="">Date Fin</label>
+        </th>
+
+        <th></th>
+    </tr>
+    @if (Model.Reservations != null) { 
+   
+    foreach (var item in Model.Reservations)
+    {
+        <tr>
+            <td>
+                <label for=""> @item.DatedebutRes</label>
+            </td>
+            <td>
+                <label for=""> @item.DatefinRes</label>
+            </td>
+          </tr>
+    }
+     }
+    
+
+   
+</table>
+<br />
+<h4>Mes horaires</h4>
+<form method="post">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="DatedebutRes">Date debut réservation</label>
+                <input type="datetime-local" class="form-control" name="DatedebutRes" aria-describedby="" placeholder=" " required>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="DatefinRes">Date fin réservation</label>
+                <input type="datetime-local" class="form-control" name="DatefinRes" aria-describedby="" placeholder="" required>
+            </div>
+        </div>
+        <input type="hidden" class="form-control" name="IdSalle" value="@ViewBag.Idsalle" aria-describedby="" placeholder="" >
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Enregistrer" class="btn btn-primary" />
+    </div>
+</form>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

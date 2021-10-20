@@ -1,0 +1,80 @@
+﻿@model Projet.Akotchaye.App_Data.Reservation
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h2>Supprimer la réservation de la salle @Html.DisplayFor(model => model.Salle.NomSalle) </h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label for="MontantRes">Montant réservation</label>
+          
+        </dt>
+
+        <dd>
+            <label for="MontantRes"> @String.Format("{0:N0}", Model.MontantRes) F CFA</label>
+           
+        </dd>
+
+        <dt>
+            <label for="EtatRes">Etat de la réservation</label>
+          
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EtatRes)
+        </dd>
+
+        <dt>
+            <label for="DatedebutRes">Date de début</label>
+           
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatedebutRes)
+        </dd>
+
+        <dt>
+            <label for="DatefinRes">Date de fin</label>
+          
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatefinRes)
+        </dd>
+               
+       
+        <dt>
+            <label for="NomSalle">Nom de la salle</label>
+          
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salle.NomSalle)
+        </dd>
+
+        <dt>
+            <label for="Username">Username client</label>
+          
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Utilisateur.Username)
+        </dd>
+
+    </dl>
+
+    <form method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+            @Html.ActionLink("Annuler", "DashGes", "Dashboard")
+        </div>
+    </form>
+</div>

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Authentification";
+}
+
+<h2>Authentification</h2>
+
+
+
+<form method="post">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label for="Username">Identifiant </label>
+        <input type="datetime" class="form-control" name="username" aria-describedby="" placeholder="votre identifiant" required>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your Username with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="Pwd">Mot de passe</label>
+        <input type="password" class="form-control" name="pwd" placeholder="Password" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+</form>
+<br />
+<h4>Ajouter un nouveau compte </h4>
+@Html.ActionLink("Créer un compte ", "Create", "Utilisateurs")<br />
+@Html.ActionLink("Administrateur", "EnrCom", "Utilisateurs")

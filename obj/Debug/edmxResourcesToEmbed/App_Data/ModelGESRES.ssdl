@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GESRESModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="IdUser" />
+      <PropertyRef Name="IdClient" />
+    </Key>
+    <Property Name="IdUser" Type="int" Nullable="false" />
+    <Property Name="IdClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateClient" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Commercial">
+    <Key>
+      <PropertyRef Name="IdUser" />
+      <PropertyRef Name="IdCom" />
+    </Key>
+    <Property Name="IdUser" Type="int" Nullable="false" />
+    <Property Name="IdCom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="DateCom" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gestionnaire">
+    <Key>
+      <PropertyRef Name="IdUser" />
+      <PropertyRef Name="IdGes" />
+    </Key>
+    <Property Name="IdUser" Type="int" Nullable="false" />
+    <Property Name="IdGes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateGes" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="IdRes" />
+    </Key>
+    <Property Name="IdRes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUser" Type="int" Nullable="false" />
+    <Property Name="IdSalle" Type="int" Nullable="false" />
+    <Property Name="Cli_IdUser" Type="int" Nullable="false" />
+    <Property Name="IdClient" Type="int" Nullable="false" />
+    <Property Name="MontantRes" Type="money" Nullable="false" />
+    <Property Name="EtatRes" Type="varchar" MaxLength="254" Nullable="false" />
+    <Property Name="DatedebutRes" Type="datetime" Nullable="false" />
+    <Property Name="DatefinRes" Type="datetime" Nullable="false" />
+    <Property Name="IsvalidRes" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Salle">
+    <Key>
+      <PropertyRef Name="IdSalle" />
+    </Key>
+    <Property Name="IdSalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUser" Type="int" Nullable="false" />
+    <Property Name="IdGes" Type="int" Nullable="false" />
+    <Property Name="NomSalle" Type="varchar" MaxLength="254" Nullable="false" />
+    <Property Name="CapaciteSalle" Type="int" Nullable="false" />
+    <Property Name="PrixSalle" Type="money" Nullable="false" />
+    <Property Name="DescripSalle" Type="varchar" MaxLength="254" Nullable="false" />
+    <Property Name="IsActiveSalle" Type="bit" Nullable="false" />
+    <Property Name="EtatSalle" Type="varchar" MaxLength="254" Nullable="false" />
+    <Property Name="AdrSalle" Type="varchar" MaxLength="254" Nullable="false" />
+    <Property Name="ImgSalle1" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ImgSalle2" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Utilisateur">
+    <Key>
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Pwd" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Prenoms" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Tel" Type="varchar" MaxLength="230" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="254" Nullable="false" />
+    <Property Name="Libelle" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Adresse" Type="varchar" MaxLength="254" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CLI_UTI">
+    <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateur">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COM_UTI">
+    <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+    <End Role="Commercial" Type="Self.Commercial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateur">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="Commercial">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GES_UTI">
+    <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+    <End Role="Gestionnaire" Type="Self.Gestionnaire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateur">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="Gestionnaire">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RES_CLI">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="IdUser" />
+        <PropertyRef Name="IdClient" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="Cli_IdUser" />
+        <PropertyRef Name="IdClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RES_SAL">
+    <End Role="Salle" Type="Self.Salle" Multiplicity="1" />
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Salle">
+        <PropertyRef Name="IdSalle" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="IdSalle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RES_UTI">
+    <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateur">
+        <PropertyRef Name="IdUser" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SALLE_ASSOCIATI_GESTIONN">
+    <End Role="Gestionnaire" Type="Self.Gestionnaire" Multiplicity="1" />
+    <End Role="Salle" Type="Self.Salle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gestionnaire">
+        <PropertyRef Name="IdUser" />
+        <PropertyRef Name="IdGes" />
+      </Principal>
+      <Dependent Role="Salle">
+        <PropertyRef Name="IdUser" />
+        <PropertyRef Name="IdGes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GESRESModelStoreContainer">
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Commercial" EntityType="Self.Commercial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gestionnaire" EntityType="Self.Gestionnaire" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Salle" EntityType="Self.Salle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CLI_UTI" Association="Self.FK_CLI_UTI">
+      <End Role="Utilisateur" EntitySet="Utilisateur" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COM_UTI" Association="Self.FK_COM_UTI">
+      <End Role="Utilisateur" EntitySet="Utilisateur" />
+      <End Role="Commercial" EntitySet="Commercial" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GES_UTI" Association="Self.FK_GES_UTI">
+      <End Role="Utilisateur" EntitySet="Utilisateur" />
+      <End Role="Gestionnaire" EntitySet="Gestionnaire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RES_CLI" Association="Self.FK_RES_CLI">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RES_SAL" Association="Self.FK_RES_SAL">
+      <End Role="Salle" EntitySet="Salle" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RES_UTI" Association="Self.FK_RES_UTI">
+      <End Role="Utilisateur" EntitySet="Utilisateur" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SALLE_ASSOCIATI_GESTIONN" Association="Self.FK_SALLE_ASSOCIATI_GESTIONN">
+      <End Role="Gestionnaire" EntitySet="Gestionnaire" />
+      <End Role="Salle" EntitySet="Salle" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

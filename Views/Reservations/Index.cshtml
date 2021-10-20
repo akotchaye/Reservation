@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Projet.Akotchaye.App_Data.Reservation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MontantRes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EtatRes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatedebutRes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatefinRes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsvalidRes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.IdUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salle.NomSalle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Utilisateur.Username)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MontantRes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EtatRes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DatedebutRes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DatefinRes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsvalidRes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.IdUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salle.NomSalle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Utilisateur.Username)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdRes }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdRes }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdRes })
+        </td>
+    </tr>
+}
+
+</table>

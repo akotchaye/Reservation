@@ -1,0 +1,85 @@
+﻿@model Projet.Akotchaye.App_Data.Utilisateur
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Supprimer l'utilisateur  @Html.DisplayFor(model => model.Username) </h2>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label for="Username">Username</label>
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            <label for="Nom">Nom</label>
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+        <dt>
+            <label for="Prenoms">Prenoms</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prenoms)
+        </dd>
+
+        <dt>
+            <label for="Tel">Téléphone</label>
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tel)
+        </dd>
+
+        <dt>
+            <label for="Email">Email</label>
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            <label for="Libelle">Libelle</label>
+
+        </dt>
+
+        <dd>
+
+            @Html.DisplayFor(model => model.Libelle)
+        </dd>
+
+        <dt>
+            <label for="Adresse">Adresse</label>
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresse)
+        </dd>
+
+    </dl>
+
+    <form method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+            @Html.ActionLink("Annuler", "DashCom", "Dashboard")
+        </div>
+    </form>
+</div>

@@ -1,0 +1,98 @@
+﻿@model Projet.Akotchaye.App_Data.Salle
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Salle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomSalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomSalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CapaciteSalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CapaciteSalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrixSalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrixSalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescripSalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescripSalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActiveSalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActiveSalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EtatSalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EtatSalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdrSalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdrSalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgSalle1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImgSalle1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgSalle2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImgSalle2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gestionnaire.IdUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gestionnaire.IdUser)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdSalle }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

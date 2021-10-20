@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Projet.Akotchaye.App_Data.Salle>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomSalle)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CapaciteSalle)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrixSalle)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescripSalle)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActiveSalle)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EtatSalle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdrSalle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImgSalle1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImgSalle2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gestionnaire.IdUser)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomSalle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CapaciteSalle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrixSalle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripSalle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActiveSalle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtatSalle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdrSalle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImgSalle1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImgSalle2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gestionnaire.IdUser)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdSalle }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IdSalle }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdSalle })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,107 @@
+﻿@model Projet.Akotchaye.App_Data.Utilisateur
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Modifier un utilisateur</h2>
+
+<hr />
+
+<div class="form-horizontal">
+    <form method="post">
+
+        @Html.AntiForgeryToken()
+
+        <hr />
+        <input type="hidden" class="form-control" name="IdUser" value="@Model.IdUser" aria-describedby="" placeholder="" required>
+        <div class="form-group">
+            <label for="Username">Nom d'utilisateur </label>
+
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="Username" value="@Model.Username" aria-describedby="" placeholder="Username" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Pwd1">Mot de passe </label>
+
+            <div class="col-md-4">
+                <input type="password" class="form-control" name="Pwd" value="@Model.Pwd" aria-describedby="" placeholder="votre mot de passe" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Nom">Nom  </label>
+
+            <div class="col-md-4">
+                <input type="hidden" class="form-control" name="Libelle" aria-describedby="" value="@Model.Libelle" placeholder="" required>
+                <input type="Text" class="form-control" name="Nom" value="@Model.Nom" aria-describedby="" placeholder="Votre nom" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Prenoms">Prenoms </label>
+
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="Prenoms" value="@Model.Prenoms" aria-describedby="" placeholder="" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Tel">Téléphone  </label>
+
+            <div class="col-md-4">
+                <input type="tel" class="form-control" name="Tel" aria-describedby="" value="@Model.Tel" placeholder="" required>
+            </div>
+        </div>
+        
+            <!-- <div class="form-group">
+         <label for="Libelle">Libellé</label>
+            <div class="col-md-4">
+                
+            </div>
+
+            <!-- <div class="col-md-4">
+            <select name="Libelle" class="form-control" required>
+                <option selected>--Libellé--</option>
+                <option value="client">Client</option>
+                <option value="gestionnaire">Gestionnaire</option>
+                <option value="commercial">Commercial</option>
+            </select>
+        </div>-->
+            
+
+
+            <div class="form-group">
+                <label for="Email">Email </label>
+
+                <div class="col-md-4">
+                    <input type="email" class="form-control" name="Email" value="@Model.Email" aria-describedby="" placeholder="Votre mail" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Adresse">Adresse  </label>
+
+                <div class="col-md-4">
+                    <input type="text" class="form-control" name="Adresse" value="@Model.Adresse" aria-describedby="" placeholder="Votre Adresse" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class=" col-md-10">
+                    <input type="submit" value="Enregistrer" class="btn btn-success" />
+                </div>
+            </div>
+
+    </form>
+</div>
+
+<div>
+    @Html.ActionLink("Annuler", "DashCom", "Dashboard")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

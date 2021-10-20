@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5558d321713e4d5da17fdf43152ab869" Name="Diagram1">
+        <EntityTypeShape EntityType="GESRESModel.Client" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GESRESModel.Commercial" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GESRESModel.Gestionnaire" Width="1.5" PointX="6" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GESRESModel.Reservation" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GESRESModel.Salle" Width="1.5" PointX="8.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GESRESModel.Utilisateur" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="GESRESModel.FK_CLI_UTI" ManuallyRouted="false" />
+        <AssociationConnector Association="GESRESModel.FK_RES_CLI" ManuallyRouted="false" />
+        <AssociationConnector Association="GESRESModel.FK_COM_UTI" ManuallyRouted="false" />
+        <AssociationConnector Association="GESRESModel.FK_GES_UTI" ManuallyRouted="false" />
+        <AssociationConnector Association="GESRESModel.FK_SALLE_ASSOCIATI_GESTIONN" ManuallyRouted="false" />
+        <AssociationConnector Association="GESRESModel.FK_RES_SAL" ManuallyRouted="false" />
+        <AssociationConnector Association="GESRESModel.FK_RES_UTI" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

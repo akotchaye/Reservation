@@ -1,0 +1,82 @@
+﻿
+<h2>Ajoter une salle</h2>
+
+<hr />
+<form method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="NomSalle">Nom de la salle</label>
+                <input type="text" class="form-control" name="NomSalle" aria-describedby="" placeholder=" azure" required>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="CapaciteSalle">Nombre de places</label>
+                <input type="number" class="form-control" name="CapaciteSalle" aria-describedby="" placeholder="" required>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="PrixSalle">Prix horaire</label>
+                <input type="text" class="form-control" name="PrixSalle" aria-describedby="" placeholder="" required>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="AdrSalle">Adresse</label>
+                <input type="text" class="form-control" name="AdrSalle" aria-describedby="" placeholder="" required>
+            </div>
+        </div>
+
+       <!-- <div class="form-group">
+
+
+            <div class="col-md-4">
+                <select name="Statut" class="form-control" required>
+                    <option selected>--Statut de la salle--</option>
+                    <option value="true">Activé</option>
+                    <option value="false">Désactivé</option>
+                </select>
+            </div>
+            <label for="Statut">Statut</label>
+        </div>-->
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="DescripSalle">Description de la salle</label>
+                <textarea name="DescripSalle" rows="2" cols="37" required>une petite description</textarea>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="ImgSalle1">Ajouter une image</label>
+                <input type="file" name="ImgSalle1" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="ImgSalle2">Ajouter une image</label>
+                <input type="file" name="ImgSalle2" />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Enregistrer" class="btn btn-primary" />
+    </div>
+</form>
+
+
+
+
+
+

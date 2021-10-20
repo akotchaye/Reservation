@@ -1,0 +1,160 @@
+﻿@model Projet.Akotchaye.Models.ViewModelSR
+@{
+    ViewBag.Title = "DashGes";
+}
+
+
+<br />
+@if (Session["UserName"] != null)
+{<h3> Welcome @Session["Nom"].ToString()  @Session["Prenoms"].ToString()  </h3>}
+
+<div class="pull-right">@Html.ActionLink("Déconnexion", "Deconnexion", "Deconnexion")</div>
+<br />
+
+<h4>Salles</h4>
+
+@Html.ActionLink("Ajouter une salle", "Create", "Salles", null, new { @class = "btn btn-primary" })
+<br />
+<br />
+<table class="table">
+    <tr>
+        <th>
+            <label for="">IdSalle</label>
+        </th>
+        <th>
+            <label for="">Nom salle</label>
+        </th>
+        <th>
+            <label for="">Capacité</label>
+        </th>
+        <th>
+            <label for="">Prix horaire</label>
+        </th>
+        
+        <th>
+            <label for="">Statut</label>
+        </th>
+        <th>
+            <label for="">Adresse</label>
+        </th>
+       
+
+        <th></th>
+        <th></th>
+    </tr>
+
+    @if (Model.Salles != null)
+    {
+        foreach (var item in Model.Salles)
+        {
+            <tr>
+                <td>
+                    <label for=""> @item.IdSalle </label>
+                </td>
+                <td>
+                    <label for=""> @item.NomSalle</label>
+                </td>
+                <td>
+                    <label for=""> @item.CapaciteSalle</label>
+                </td>
+                <td>
+                    <label for=""> @String.Format("{0:N0}", item.PrixSalle) FCFA</label>
+                </td>
+                
+                <td>
+                    <label for=""> @item.EtatSalle</label>
+                </td>
+                <td>
+                    <label for=""> @item.AdrSalle</label>
+                </td>
+                
+                <!--ces bouttons sont a revoir. -->
+                <td>
+                    @Html.ActionLink("Activer","ActivSalle","ActivSalle", new { id = item.IdSalle }, new { @class = "btn btn-success" })|
+                    @Html.ActionLink("Désactiver","DesactivSalle","DesactivSalle", new { id = item.IdSalle }, new { @class = "btn btn-info" })|
+                    @Html.ActionLink("Modifier","Edit","Salles", new { id = item.IdSalle }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Supprimer","Delete", "Salles", new { id = item.IdSalle }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+
+<h4>Réservations</h4>
+<table class="table">
+    <tr>
+        <th>
+            <label for="">Nom client</label>
+        </th>
+        <th>
+            <label for="">Prenoms client</label>
+        </th>
+        <th>
+            <label for="">Téléphone</label>
+        </th>
+        <th>
+            <label for="">Email</label>
+        </th>
+        <th>
+            <label for="">IdSalle</label>
+        </th>
+        <th>
+            <label for="">Salle</label>
+        </th>
+        <th>
+            <label for="">Montant </label>
+        </th>
+
+        <th>
+            <label for="">Statut</label>
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.Reservations != null)
+    {
+        foreach (var item in Model.Reservations)
+        {
+            <tr>
+                <td>
+                    <label for=""> @item.Utilisateur.Nom </label>
+                </td>
+                <td>
+                    <label for=""> @item.Utilisateur.Prenoms</label>
+                </td>
+                <td>
+                    <label for=""> @item.Utilisateur.Tel</label>
+                </td>
+                <td>
+                    <label for=""> @item.Utilisateur.Email</label>
+                </td>
+                <td>
+                    <label for=""> @item.Salle.IdSalle</label>
+                </td>
+                 <td>
+                    <label for=""> @item.Salle.NomSalle</label>
+                </td>
+                <td>
+                    <label for=""> @String.Format("{0:N0}", item.MontantRes) FCFA </label>
+                </td>
+               
+                <td>
+                    <label for=""> @item.EtatRes</label>
+                </td>
+
+                <td>
+                    @Html.ActionLink("Valider", "ValidRes", "ValidRes", new { id = item.IdRes }, new { @class = "btn btn-success" })|
+                   
+                    @Html.ActionLink("Supprimer", "Delete", "Reservations", new { id = item.IdRes }, new { @class = "btn btn-danger" })
+
+                </td>
+
+                <!--ces bouttons sont a revoir. -->
+
+            </tr>
+        }
+    }
+
+</table>
+
+

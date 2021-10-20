@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GESRESModelStoreContainer" CdmEntityContainer="GESRESEntities">
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="GESRESModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="DateClient" ColumnName="DateClient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Commercial">
+      <EntityTypeMapping TypeName="GESRESModel.Commercial">
+        <MappingFragment StoreEntitySet="Commercial">
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdCom" ColumnName="IdCom" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="DateCom" ColumnName="DateCom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gestionnaire">
+      <EntityTypeMapping TypeName="GESRESModel.Gestionnaire">
+        <MappingFragment StoreEntitySet="Gestionnaire">
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdGes" ColumnName="IdGes" />
+          <ScalarProperty Name="DateGes" ColumnName="DateGes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservation">
+      <EntityTypeMapping TypeName="GESRESModel.Reservation">
+        <MappingFragment StoreEntitySet="Reservation">
+          <ScalarProperty Name="IdRes" ColumnName="IdRes" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdSalle" ColumnName="IdSalle" />
+          <ScalarProperty Name="Cli_IdUser" ColumnName="Cli_IdUser" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="MontantRes" ColumnName="MontantRes" />
+          <ScalarProperty Name="EtatRes" ColumnName="EtatRes" />
+          <ScalarProperty Name="DatedebutRes" ColumnName="DatedebutRes" />
+          <ScalarProperty Name="DatefinRes" ColumnName="DatefinRes" />
+          <ScalarProperty Name="IsvalidRes" ColumnName="IsvalidRes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salle">
+      <EntityTypeMapping TypeName="GESRESModel.Salle">
+        <MappingFragment StoreEntitySet="Salle">
+          <ScalarProperty Name="IdSalle" ColumnName="IdSalle" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdGes" ColumnName="IdGes" />
+          <ScalarProperty Name="NomSalle" ColumnName="NomSalle" />
+          <ScalarProperty Name="CapaciteSalle" ColumnName="CapaciteSalle" />
+          <ScalarProperty Name="PrixSalle" ColumnName="PrixSalle" />
+          <ScalarProperty Name="DescripSalle" ColumnName="DescripSalle" />
+          <ScalarProperty Name="IsActiveSalle" ColumnName="IsActiveSalle" />
+          <ScalarProperty Name="EtatSalle" ColumnName="EtatSalle" />
+          <ScalarProperty Name="AdrSalle" ColumnName="AdrSalle" />
+          <ScalarProperty Name="ImgSalle1" ColumnName="ImgSalle1" />
+          <ScalarProperty Name="ImgSalle2" ColumnName="ImgSalle2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilisateur">
+      <EntityTypeMapping TypeName="GESRESModel.Utilisateur">
+        <MappingFragment StoreEntitySet="Utilisateur">
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenoms" ColumnName="Prenoms" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

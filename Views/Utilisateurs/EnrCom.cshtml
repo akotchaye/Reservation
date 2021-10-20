@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "EnrCom";
+}
+
+
+<h2>Créer un compte commercial</h2>
+
+
+
+<div class="form-horizontal">
+
+    <hr />
+    <form method="post" action="EnrCom">
+        <div class="form-group">
+            <label for="Username">Nom d'utilisateur </label>
+            <input type="text" class="form-control" name="Username" aria-describedby="" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+            <label for="Pwd1">Mot de passe </label>
+            <input type="password" class="form-control" name="Pwd1" aria-describedby="" placeholder="votre mot de passe" required>
+        </div>
+        <div class="form-group">
+            <label for="Pwd2">Confirmer mot de passe </label>
+            <input type="password" class="form-control" name="Pwd2" aria-describedby="" placeholder="mot de passe" required>
+        </div>
+        <div class="form-group">
+            <label for="Nom">Nom  </label>
+            <input type="Text" class="form-control" name="Nom" aria-describedby="" placeholder="Votre nom" required>
+        </div>
+        <div class="form-group">
+            <label for="Prenoms">Prenoms </label>
+            <input type="text" class="form-control" name="Prenoms" aria-describedby="" placeholder="Votre prenom" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Tel">Téléphone  </label>
+            <input type="tel" class="form-control" name="Tel" aria-describedby="" placeholder="Votre contact" required>
+        </div>
+        <div class="form-group">
+            <label for="Email">Email </label>
+            <input type="email" class="form-control" name="Email" aria-describedby="" placeholder="Votre mail" required>
+        </div>
+        <!-- <div class="form-group ">
+        <label for="Libelle">Choisir un profil</label>
+        <select name="Libelle" class="form-control" required>
+           <option value="commercial">Commercial</option>
+        </select>
+    </div>-->
+        <div class="form-group">
+            <label for="Adresse">Adresse  </label>
+            <input type="text" class="form-control" name="Adresse" aria-describedby="" placeholder="Votre Adresse" required>
+        </div>
+        <div class="form-group">
+            <label for="Code"> code d'identification </label>
+            <input type="text" class="form-control" name="Code" aria-describedby="" placeholder="Votre code" required>
+        </div>
+        <div class="form-group">
+            <input type="hidden" class="form-control" name="VBcode" value="@ViewBag.code" aria-describedby=""  >
+        </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Envoyer" class="btn btn-primary" />
+                </div>
+            </div>
+    </form>
+</div>
+
+<div>
+
+    <a href="Index">Retourner a la liste</a><br>
+</div>
+
+

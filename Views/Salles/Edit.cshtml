@@ -1,0 +1,108 @@
+﻿@model Projet.Akotchaye.App_Data.Salle
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Modifier une salle</h2>
+
+<hr />
+
+<div class="form-horizontal">
+
+    <form method="post" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+        <input type="hidden" class="form-control" name="IdSalle" value="@Model.IdSalle" aria-describedby="" placeholder="">
+        <div class="form-group">
+
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="NomSalle" value="@Model.NomSalle" aria-describedby="" placeholder=" azure" required>
+            </div>
+            <label for="NomSalle">Nom de la salle</label>
+        </div>
+
+        <div class="form-group">
+
+
+            <div class="col-md-4">
+                <input type="number" class="form-control" name="CapaciteSalle" value="@Model.CapaciteSalle" aria-describedby="" placeholder="" required>
+            </div>
+            <label for="CapaciteSalle">Nombre de places</label>
+        </div>
+
+        <div class="form-group">
+
+
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="PrixSalle" value="@String.Format("{0:N0}",Model.PrixSalle)" aria-describedby="" placeholder="" required>
+            </div>
+            <label for="PrixSalle">Prix horaire</label>
+        </div>
+
+        <div class="form-group">
+
+
+            <div class="col-md-4">
+                <select name="Statut" class="form-control" required>
+                    <option selected>--Statut de la salle--</option>
+                    <option value="true">Activé</option>
+                    <option value="false">Désactivé</option>
+                </select>
+            </div>
+            <label for="Statut">Statut</label>
+        </div>
+
+        <div class="form-group">
+
+
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="AdrSalle" value="@Model.AdrSalle" aria-describedby="" placeholder="" required>
+            </div>
+            <label for="AdrSalle">Adresse</label>
+        </div>
+
+        <div class="form-group">
+
+
+            <div class="col-md-4">
+                <textarea name="DescripSalle" rows="2" cols="37" required>@Model.DescripSalle</textarea>
+            </div>
+            <label for="DescripSalle">Description de la salle</label>
+        </div>
+
+        <div class="form-group">
+
+
+            <div class="col-md-4">
+                <input type="file" name="ImgSalle1" />
+            </div>
+            <label for="ImgSalle1">Ajouter une image</label>
+        </div>
+
+        <div class="form-group">
+
+
+            <div class="col-md-4">
+                <input type="file" name="ImgSalle2" />
+            </div>
+            <label for="ImgSalle2">Ajouter une image</label>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class=" col-md-10">
+                <input type="submit" value="Enregistrer" class="btn btn-success" />
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div>
+    @Html.ActionLink("Annuler", "DashGes", "Dashboard")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
